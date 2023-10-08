@@ -11,12 +11,18 @@
     <title>Weather sounds</title>
   </head>
   <body>
-    <main>
+    <main class="background-sun">
       <h1>Weather sounds</h1>
       <section>
-        <button class="card"><div class="card-icon sun"></div></button>
-        <button class="card"><div class="card-icon rain"></div></button>
-        <button class="card"><div class="card-icon winter"></div></button>
+        <button class="card button" data-id="sun">
+          <div class="button card-icon card-icon-sun sun"></div>
+        </button>
+        <button class="card button" data-id="rain">
+          <div class="button card-icon card-icon-rain rain"></div>
+        </button>
+        <button class="card button" data-id="winter">
+          <div class="button card-icon card-icon-winter winter"></div>
+        </button>
       </section>
       <input type="range" />
     </main>
