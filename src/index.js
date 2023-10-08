@@ -2,6 +2,7 @@ import "./index.scss";
 import summerSound from "./assets/sounds/summer.mp3";
 import rainSound from "./assets/sounds/rain.mp3";
 import winterSound from "./assets/sounds/winter.mp3";
+/* html элементы */
 const main = document.querySelector("main");
 const buttonsWrapper = main.querySelector("section");
 const buttonSun = buttonsWrapper.querySelector(`[data-id="sun"]`);
@@ -10,12 +11,22 @@ const buttonWinter = buttonsWrapper.querySelector(`[data-id="winter"]`);
 const sunIcon = buttonSun.querySelector(".card-icon-sun");
 const rainIcon = buttonRain.querySelector(".card-icon-rain");
 const winterIcon = buttonWinter.querySelector(".card-icon-winter");
+/* отслеживание, какой звук сейчас играет */
 let sunPlay = false;
 let rainPlay = false;
 let winterPlay = false;
+/* звуки */
 let audioSun = new Audio(summerSound);
 let audioRain = new Audio(rainSound);
 let audioWinter = new Audio(winterSound);
+const volumeSlider = document.getElementById("volume-slider");
+
+volumeSlider.addEventListener("input", () => {
+  audioSun.volume = volumeSlider.value;
+  audioRain.volume = volumeSlider.value;
+  audioWinter.volume = volumeSlider.value;
+});
+/* три обработчика на каждую кнопку */
 buttonSun.addEventListener("click", (e) => {
   e.preventDefault();
   if (!sunPlay) {
